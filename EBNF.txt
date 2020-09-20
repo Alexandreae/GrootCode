@@ -1,0 +1,45 @@
+EBNF
+
+PROGRAM = 'I_AM_GROOT', COMMAND , '/I_AM_GROOT' ;
+
+BLOCK = '{', { COMMAND }, '}' ;
+
+COMMAND = ';' | I_GROOT | WE_GROOT |GROOT? | GROOT?!;
+
+# I_GROOT - def var
+# WE_GROOT - def func
+# GROOT?   - if
+# NOT_GROOT - else
+# GROOT?!  - while
+
+I_GROOT = TYPE, NAME, '=', NUMBER | STRING | BOOL;
+
+WE_GROOT = NAME, '(', VALUES, ')', COMMAND;
+
+GROOT? = EXPRESSION, COMMAND, { NOT_GROOT };
+
+NOT_GROOT = COMMAND; 
+
+GROOT?! = EXPRESSION, COMMAND;
+
+EXPRESSION = TERM, '==' | '>' | '<' | 'or', { TERM, '==' | '>' | '<' | 'or'};
+
+TERM = FACTOR, '*' | '/', { FACTOR, '*' | '/'};
+
+FACTOR = NUMBER | ('+', TERM) | ('-', TERM) | ('!', TERM), { ('+', TERM) | ('-', TERM) | ('(', TERM, ')')}; 
+
+TYPE = 'int'| float' | 'string' | 'bool' | 'list';
+
+NUMBER = DIGIT, { DIGIT } ;
+
+STRING = '"', ((' ' | LETTER | DIGIT | '' ) , { ( ' ' | LETTER | DIGIT | '') }), '"';
+
+NAME = ((' ' | LETTER | DIGIT | '' ) , { ( ' ' | LETTER | DIGIT | '') });
+
+VALUES = TYPE, NAME, ',', { (TYPE, NAME, ',') };
+
+LETTER = ( a | ... | z | A | ... | Z ) ;
+
+DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
+
+BOOL = ( 'GROOT!' | '!GROOT') ;
