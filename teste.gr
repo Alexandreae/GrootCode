@@ -1,0 +1,38 @@
+I_AM_GROOT checaPrimo(x::Int)::Bool
+    I_GROOT r::Bool
+    I_GROOT i::Int
+    I_GROOT j::Int
+    r = groot
+    i = 2
+
+    GROOT? x<i
+        REGROOT !groot
+    GROOT
+
+    GROOT?! i<x
+
+        j = x/i
+        j = j*i
+        GROOT? j==x
+            r = !groot
+        GROOT
+
+        i = i + 1
+    GROOT
+
+    REGROOT r
+
+GROOT
+
+I_GROOT x::Int
+I_GROOT r::Bool
+GROOT:("Digite um numero para descobrir se e primo.")
+x = readline()
+r = checaPrimo(x)
+
+
+GROOT? r
+    GROOT:("Esse numero e primo.")
+NOT_GROOT
+    GROOT:("Esse numero nao e primo.")
+GROOT
